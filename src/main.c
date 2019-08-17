@@ -9,8 +9,13 @@ int main()
 
 	xc = -1;
 	env.mlx = mlx_init();
-	env.win = mlx_new_window(env.mlx, WIN_X, WIN_Y, "RayTracer");
+	env.win = mlx_new_window(env.mlx, WIN_X, WIN_Y, WIN_NAME);
 	ft_imginit(&env, &env.img, WIN_X, WIN_Y);
+	
+	/*t_vec3 x = set_vec3(1,0,0);
+	t_vec3 y = set_vec3(0,1,0);
+	t_vec3 z = set_vec3(0,0,-1);
+*/
 	while(++xc < WIN_X)
 	{
 		yc = -1;

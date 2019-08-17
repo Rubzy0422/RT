@@ -6,16 +6,18 @@
 # include <math.h>
 # include <stdio.h>
 # include <libft.h>
+# include <libvec.h>
 
 # define BPP		4
 # define FILE_HEAD	14
 # define INFO_HEAD	40
-# define F_NAME		"IMG"
 
+# define WIN_X 1920
+# define WIN_Y 1080
+# define WIN_NAME "Ray Tracer v1"
 
-#define WIN_X 1920
-#define WIN_Y 1080
-struct tm	*t_timeinfo;
+typedef struct tm	*t_timeinfo;
+
 /* 
 ** Key DEFINES
 */
@@ -31,12 +33,6 @@ struct tm	*t_timeinfo;
 /*
 **Structs
 */
-
-typedef struct		s_vec2
-{
-	float			x;
-	float			y;
-}					t_vec2;
 
 typedef struct		s_img
 {
