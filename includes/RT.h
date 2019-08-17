@@ -15,15 +15,17 @@
 
 #define WIN_X 1920
 #define WIN_Y 1080
-
+struct tm	*t_timeinfo;
 /* 
 ** Key DEFINES
 */
 
 # if __APPLE__
 #  define ESC		53
+#  define S			1
 # elif __linux__
 #  define ESC		0xff1b
+#  define S			's'
 # endif
 
 /*

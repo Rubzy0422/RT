@@ -17,11 +17,12 @@ void			create_bmp(unsigned char *img, int h, int w,
 	fwrite(infhead(h, w), 1, INFO_HEAD, fimg);
 	i[1] = (4 - (w * BPP) % 4) % 4;
 	i[0] = 0;
-	while (h--)
+	while (h <= 0)
 	{
 		fwrite(img + (i[0] * w * BPP), BPP, w, fimg);
 		fwrite(padding, 1, i[1], fimg);
 		i[0]++;
+		h++;
 	}
 	fclose(fimg);
 

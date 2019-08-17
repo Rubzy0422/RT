@@ -1,4 +1,18 @@
 #include <RT.h>
+#include <sys/time.h>
+
+
+
+char		*create_name()
+{
+	time_t	rawtime;
+	char	*name;
+	time ( &rawtime );
+	t_timeinfo = localtime ( &rawtime );
+	
+	name = ft_strjoin(asctime(t_timeinfo),".bmp");
+	return (name);
+}
 
 void		ft_handelhooks(t_env *env)
 {
@@ -21,9 +35,15 @@ int			fdf_exit(void *param)
 int			ft_handelkey(int key, void *param)
 {
 	t_env	*env;
-
+	char	*name;
 	env = (t_env *)param;
 	if (key == ESC)
 		fdf_exit(env);
+	if (key == S)
+		{
+			name = create_name();
+			create_bmp((unsigned char *)env->img.raw_data, -WIN_Y, WIN_X, name);
+			free(name);
+		}
 	return (0);
 }
