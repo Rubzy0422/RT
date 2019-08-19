@@ -1,16 +1,14 @@
 #include <RT.h>
 #include <sys/time.h>
 
-
-
 char		*create_name()
 {
-	time_t	rawtime;
-	char	*name;
-	time ( &rawtime );
-	t_timeinfo = localtime ( &rawtime );
-	
-	name = ft_strjoin(asctime(t_timeinfo),".bmp");
+
+	t_timeval	time;
+	char *name;
+
+	gettimeofday(&time, NULL);
+	name = ft_strjoin(ft_itoa(time.tv_sec) ,".bmp");
 	return (name);
 }
 
@@ -28,7 +26,7 @@ int			fdf_exit(void *param)
 	if (env->img.w > 0)
 		mlx_destroy_image(env->mlx, env->img.ptr_img);
 	mlx_destroy_window(env->mlx, env->win);
-	exit(0);
+	ft_say("Exiting!", 2, env);
 	return (0);
 }
 
@@ -42,7 +40,10 @@ int			ft_handelkey(int key, void *param)
 	if (key == S)
 		{
 			name = create_name();
-			create_bmp((unsigned char *)env->img.raw_data, -WIN_Y, WIN_X, name);
+			mlx_string_put(env->mlx, env->win,10, 10, 0xf3f3, "Image saved!");
+			ft_say("Image Saved!", 0, env);
+			create_bmp((unsigned char *)env->img.raw_data, -env->win_y,
+			env->win_x, name);
 			free(name);
 		}
 	return (0);

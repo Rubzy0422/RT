@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 11:38:05 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/12 12:08:34 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/18 10:06:14 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ft_img_to_win(t_env *env, t_img *img)
 {
 	mlx_put_image_to_window(env->mlx, env->win, img->ptr_img,
-	img->crd.x, img->crd.y);
+	img->crd.u, img->crd.v);
 }
 
 void	ft_img_clear(t_img *img, int colo)
@@ -52,19 +52,7 @@ void	ft_imginit(t_env *env, t_img *img, int w, int h)
 	&img->endian);
 	img->w = w;
 	img->h = h;
-	img->crd.x = 0;
-	img->crd.y = 0;
+	img->crd.u = 0;
+	img->crd.v = 0;
 	ft_img_clear(img, 0x000000);
-}
-
-int		rgb_to_hex(float r, float g, float b)
-{
-	int ret;
-
-	ret = r;
-	ret *= 0x100;
-	ret += g;
-	ret *= 0x100;
-	ret += b;
-	return (ret);
 }

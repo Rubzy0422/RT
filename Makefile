@@ -3,7 +3,9 @@ CC = gcc
 SRC =	hooks.c\
 		img.c\
 		main.c\
-		save_img.c
+		save_img.c\
+		log.c\
+		input_check.c\
 
 INC =	-I ./includes \
 		-I ./libft/includes \
@@ -14,7 +16,6 @@ LIBS = libft/libft.a libvec/libvec.a
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-	$(shell make libmlx.a)
 	MLX_FLAGS = minilibx/libmlx.a -lXext -lX11 -lm
 endif
 ifeq ($(UNAME_S),Darwin)
@@ -30,8 +31,8 @@ OBJS		=	$(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
 all: directory $(NAME)
 
-$(NAME): libft.a libvec.a $(OBJ_DIR) $(OBJS)
-	@$(CC) $(OBJS) -o $(NAME) $(FLAGS) $(MLX_FLAGS) $(LIBS)
+$(NAME): libft.a libvec.a libmlx.a $(OBJ_DIR) $(OBJS)
+	@$(CC) $(OBJS) -o $(NAME) $(FLAGS) $(LIBS) $(MLX_FLAGS)
 	@printf "\e[33m[COMPILED] \e[32m%41s\e[39m\n" "$(NAME)"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c 

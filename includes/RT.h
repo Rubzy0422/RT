@@ -12,12 +12,15 @@
 # define FILE_HEAD	14
 # define INFO_HEAD	40
 
-# define WIN_X 1920
-# define WIN_Y 1080
+# define USAGE "Usage:./RT [SCENE FILE] [WINDOW WIDTHxWINDOW HIGHT] [FLAGS]"
+# define FLAGS "FLAGS:S:Sound h:Help"
+# define WIN_X 1024
+# define WIN_Y 768
+# define WIN_X_MAX 1980
+# define WIN_Y_MAX 1080
 # define WIN_NAME "Ray Tracer v1"
 
-typedef struct tm	*t_timeinfo;
-
+typedef struct timeval	t_timeval;
 /* 
 ** Key DEFINES
 */
@@ -50,7 +53,10 @@ typedef struct		s_env
 {
 	void			*mlx;
 	void			*win;
+	int				win_x;
+	int				win_y;
 	t_img			img;
+	int				say;
 }					t_env;
 
 /*
@@ -70,7 +76,8 @@ void			create_bmp(unsigned char *img, int h, int w,
 										char *fn);
 unsigned char	*infhead(int h, int w);
 unsigned char	*file_head(int h, int w);
-void			create_bmp(unsigned char *image, int height, int width, char* imageFileName);
+void			create_bmp(unsigned char *image, int height, int width,
+				char*imageFileName);
 
 /*
 ** MLX_Hooks
@@ -78,4 +85,21 @@ void			create_bmp(unsigned char *image, int height, int width, char* imageFileNa
 void		ft_handelhooks(t_env *env);
 int			fdf_exit(void *param);
 int			ft_handelkey(int key, void *param);
+
+/*
+** Say .. its errors?
+*/
+void		ft_say(char *str, int bexit, t_env *env);
+
+/*
+** Parsing args
+*/
+void	set_startup(int ac, char **av, t_env *env);
+void	load_scene(int fd, t_env *env);
+void	ft_win_error_check(int ac, t_env *env);
+void	ft_flag_check(char **av, t_env *env, int i);
+void	parse_screen_str(char *str, t_env *env);
+
+
+
 #endif 
