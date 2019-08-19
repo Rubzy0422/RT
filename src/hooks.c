@@ -1,14 +1,25 @@
-#include <RT.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hooks.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/19 12:52:10 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/08/19 12:54:54 by rcoetzer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <ray_tracer.h>
 #include <sys/time.h>
 
-char		*create_name()
+char		*create_name(void)
 {
-
 	t_timeval	time;
-	char *name;
+	char		*name;
 
 	gettimeofday(&time, NULL);
-	name = ft_strjoin(ft_itoa(time.tv_sec) ,".bmp");
+	name = ft_strjoin(ft_itoa(time.tv_sec), ".bmp");
 	return (name);
 }
 
@@ -34,17 +45,18 @@ int			ft_handelkey(int key, void *param)
 {
 	t_env	*env;
 	char	*name;
+
 	env = (t_env *)param;
 	if (key == ESC)
 		fdf_exit(env);
 	if (key == S)
-		{
-			name = create_name();
-			mlx_string_put(env->mlx, env->win,10, 10, 0xf3f3, "Image saved!");
-			ft_say("Image Saved!", 0, env);
-			create_bmp((unsigned char *)env->img.raw_data, -env->win_y,
-			env->win_x, name);
-			free(name);
-		}
+	{
+		name = create_name();
+		mlx_string_put(env->mlx, env->win, 10, 10, 0xf3f3, "Image saved!");
+		ft_say("Image Saved!", 0, env);
+		create_bmp((unsigned char *)env->img.raw_data, -env->win_y,
+		env->win_x, name);
+		free(name);
+	}
 	return (0);
 }

@@ -73,4 +73,10 @@ libft:
 libvec:
 	@git clone https://github.com/rubzy0422/libvec.git
 
+destroy:
+	rm -rf libvec
+	rm -rf libft
+	rm -rf *.bmp
+	rm -rf minilibx
+
 .PHONY: clean all re fclean directory

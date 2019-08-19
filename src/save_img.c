@@ -1,4 +1,16 @@
-#include <RT.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   save_img.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/19 12:59:07 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/08/19 12:59:44 by rcoetzer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <ray_tracer.h>
 
 void			create_bmp(unsigned char *img, int h, int w,
 										char *fn)
@@ -25,7 +37,6 @@ void			create_bmp(unsigned char *img, int h, int w,
 		h++;
 	}
 	fclose(fimg);
-
 }
 
 unsigned char	*file_head(int h, int w)

@@ -6,11 +6,11 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 19:20:55 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/18 19:21:05 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/19 12:57:15 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <RT.h>
+#include <ray_tracer.h>
 
 void	parse_screen_str(char *str, t_env *env)
 {
@@ -49,14 +49,14 @@ void	ft_win_error_check(int ac, t_env *env)
 		if (ac > 1 && ac < 5)
 			ft_say("Screen not set or invalid", 0, env);
 		if (ac > 5)
-			ft_say("Too many arguments given",0,env);
+			ft_say("Too many arguments given", 0, env);
 		ft_say("Setting to default Resolution", 0, env);
 		env->win_x = WIN_X;
 		env->win_y = WIN_Y;
 	}
 	if (env->win_x > WIN_X_MAX || env->win_y > WIN_Y_MAX)
 	{
-		ft_say("Input too large!",0,env);
+		ft_say("Input too large!", 0, env);
 		ft_say("Setting to default Resolution", 0, env);
 		env->win_x = WIN_X;
 		env->win_y = WIN_Y;
@@ -66,7 +66,8 @@ void	ft_win_error_check(int ac, t_env *env)
 void	load_scene(int fd, t_env *env)
 {
 	char *ln;
-	while (get_next_line(fd,&ln) > 0)
+
+	while (get_next_line(fd, &ln) > 0)
 	{
 		ft_putstr("SCENE:");
 		ft_putstr(ln);
@@ -88,7 +89,7 @@ void	set_startup(int ac, char **av, t_env *env)
 		ft_say(USAGE, 1, env);
 	while (i < ac)
 	{
-		ft_flag_check(av, env, i);		
+		ft_flag_check(av, env, i);
 		if (ft_strequ(ft_strrchr(av[i], '.'), ".scene") > 0)
 		{
 			if (scene_cnt == 0)

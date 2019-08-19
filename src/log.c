@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   haha.c                                             :+:      :+:    :+:   */
+/*   log.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 11:26:42 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/18 12:44:40 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/19 12:59:54 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <RT.h>
+#include <ray_tracer.h>
 
-void	ft_status(char *str)
+void		ft_status(char *str)
 {
 	ft_putstr("\e[33m[STATUS]\t\t");
 	ft_putstr(str);
 	ft_putstr("\e[39m\n");
 }
 
-void	ft_error(char *str)
+void		ft_error(char *str)
 {
 	ft_putstr("\e[31m[ERROR]\t\t");
 	ft_putstr(str);
@@ -27,12 +27,12 @@ void	ft_error(char *str)
 	exit(-1);
 }
 
-void	ft_proccomplete(char *str)
+void		ft_proccomplete(char *str)
 {
 	ft_putstr("\e[32m[DONE]\t\t\t");
 	ft_putstr(str);
 	ft_putstr("\e[39m\n");
-	exit (0);
+	exit(0);
 }
 
 void		ft_say(char *str, int bexit, t_env *env)
@@ -45,8 +45,6 @@ void		ft_say(char *str, int bexit, t_env *env)
 		system(cmd);
 		free(cmd);
 	}
-	
-
 	if (bexit == 0)
 		ft_status(str);
 	else if (bexit == 1)

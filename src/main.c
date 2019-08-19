@@ -1,6 +1,17 @@
-#include <RT.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/19 13:00:12 by rcoetzer          #+#    #+#             */
+/*   Updated: 2019/08/19 13:00:43 by rcoetzer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include <ray_tracer.h>
+#include <stdio.h>
 
 int main(int ac , char **av)
 {	
@@ -46,7 +57,7 @@ int main(int ac , char **av)
 		yc = -1;
 		while(++yc < env.win_y) 
 		{			
-			ft_px_to_img(&env.img, /*(hex)*/ 0xffffff,xc, yc);
+			ft_px_to_img(&env.img, 0xffffff, xc, yc);
 		}
 	}
 	ft_img_to_win(&env, &env.img);

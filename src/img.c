@@ -6,12 +6,11 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 11:38:05 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/18 10:06:14 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/19 12:55:17 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <RT.h>
+#include <ray_tracer.h>
 
 void	ft_img_to_win(t_env *env, t_img *img)
 {
