@@ -52,7 +52,7 @@ clean:
 fclean: clean
 	@make -C libft fclean
 	@make -C libvec fclean
-	@rm -f $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 
