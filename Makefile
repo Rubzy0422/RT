@@ -50,9 +50,9 @@ clean:
 	@rm -rf $(OBJ_DIR)
 
 fclean: clean
+	@rm -rf $(NAME)
 	@make -C libft fclean
 	@make -C libvec fclean
-	@rm -rf $(NAME)
 
 re: fclean all
 
@@ -73,7 +73,7 @@ libft:
 libvec:
 	@git clone https://github.com/rubzy0422/libvec.git
 
-destroy:
+destroy: fclean
 	rm -rf libvec
 	rm -rf libft
 	rm -rf *.bmp
