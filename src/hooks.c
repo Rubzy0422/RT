@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:52:10 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/19 12:54:54 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/21 09:22:52 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char		*create_name(void)
 	char		*name;
 
 	gettimeofday(&time, NULL);
-	name = ft_strjoin(ft_itoa(time.tv_sec), ".bmp");
+	name = ft_strjoin_free(ft_itoa(time.tv_sec), ".bmp", 1, 0);
 	return (name);
 }
 

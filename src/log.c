@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 11:26:42 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/19 12:59:54 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/21 15:54:02 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		ft_status(char *str)
 	ft_putstr("\e[39m\n");
 }
 
-void		ft_error(char *str)
+void		ft_errorprmp(char *str)
 {
 	ft_putstr("\e[31m[ERROR]\t\t");
 	ft_putstr(str);
@@ -48,7 +48,7 @@ void		ft_say(char *str, int bexit, t_env *env)
 	if (bexit == 0)
 		ft_status(str);
 	else if (bexit == 1)
-		ft_error(str);
+		ft_errorprmp(str);
 	else if (bexit == 2)
 		ft_proccomplete(str);
 }

@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 19:20:55 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/19 12:57:15 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/21 15:54:11 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,6 @@ void	ft_win_error_check(int ac, t_env *env)
 	}
 }
 
-void	load_scene(int fd, t_env *env)
-{
-	char *ln;
-
-	while (get_next_line(fd, &ln) > 0)
-	{
-		ft_putstr("SCENE:");
-		ft_putstr(ln);
-		ft_putchar('\n');
-		free(ln);
-	}
-	(void)env;
-}
-
 void	set_startup(int ac, char **av, t_env *env)
 {
 	int fd;
@@ -103,5 +89,5 @@ void	set_startup(int ac, char **av, t_env *env)
 	ft_win_error_check(ac, env);
 	if (fd <= 0)
 		ft_say("No Valid Scene file entered!", 1, env);
-	load_scene(fd, env);
+	ft_sceneparse(fd, env);
 }

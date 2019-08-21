@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:51:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/19 12:51:46 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/21 15:49:38 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@
 # define WIN_X_MAX 1980
 # define WIN_Y_MAX 1080
 # define WIN_NAME "Ray Tracer v1"
-
+# define EROR 1
+# define STAT 0
+# define DONE 2
 typedef struct timeval	t_timeval;
 /*
 ** Key DEFINES
@@ -69,6 +71,9 @@ typedef struct		s_env
 	int				win_y;
 	t_img			img;
 	int				say;
+		char		**scene;
+	t_cam			cam;
+	t_light			*light;
 }					t_env;
 
 /*
@@ -106,8 +111,23 @@ void				ft_say(char *str, int bexit, t_env *env);
 ** Parsing args
 */
 void				set_startup(int ac, char **av, t_env *env);
-void				load_scene(int fd, t_env *env);
+int					load_scene(int fd, t_env *env);
 void				ft_win_error_check(int ac, t_env *env);
 void				ft_flag_check(char **av, t_env *env, int i);
 void				parse_screen_str(char *str, t_env *env);
+
+/*
+** Parsing scene
+*/
+void				ft_sceneparse(int fd, t_env *env);
+
+/* 
+** Creating objs
+*/
+void				ft_add_cam(char *ln, t_env *env);
+void				ft_add_sphere(char *ln, t_env *env);
+void				ft_add_light(char *ln, t_env *env);
+void				ft_add_plane(char *ln, t_env *env);
+void				ft_add_cone(char *ln, t_env *env);
+void				ft_add_cylinder(char *ln, t_env *env);
 #endif

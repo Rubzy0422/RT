@@ -6,6 +6,7 @@ SRC =	hooks.c\
 		save_img.c\
 		log.c\
 		input_check.c\
+		scene_parse.c
 
 INC =	-I ./includes \
 		-I ./libft/includes \
