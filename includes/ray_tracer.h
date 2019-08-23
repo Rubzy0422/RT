@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:51:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/22 19:30:21 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/23 13:38:53 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@
 # define STAT 0
 # define DONE 2
 typedef struct timeval	t_timeval;
+
 /*
 ** Key DEFINES
 */
-
 # if __APPLE__
 #  define ESC		53
 #  define S			1
@@ -50,7 +50,6 @@ typedef struct timeval	t_timeval;
 /*
 **Structs
 */
-
 typedef struct		s_img
 {
 	void			*ptr_img;
@@ -63,6 +62,23 @@ typedef struct		s_img
 	t_vec2			crd;
 }					t_img;
 
+typedef struct		s_object
+{
+	char			type;
+	t_vec3			center;
+	double			radius;
+	t_vec3			axis;
+	int				color;
+	double			reflection;
+}					t_object;
+
+typedef struct		s_scene
+{
+	t_list			*objects;
+	t_list			*lights;
+	t_ray			cam; // update
+}					t_scene;
+
 typedef struct		s_env
 {
 	void			*mlx;
@@ -73,7 +89,7 @@ typedef struct		s_env
 	int				say;
 	int				scene_lines;
 	char			**data;
-	t_list			*objects;
+	t_scene			scene;
 }					t_env;
 
 /*
