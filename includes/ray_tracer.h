@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:51:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/21 15:49:38 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/22 19:30:21 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ typedef struct		s_env
 	int				win_y;
 	t_img			img;
 	int				say;
-		char		**scene;
-	t_cam			cam;
-	t_light			*light;
+	int				scene_lines;
+	char			**data;
+	t_list			*objects;
 }					t_env;
 
 /*
@@ -117,17 +117,9 @@ void				ft_flag_check(char **av, t_env *env, int i);
 void				parse_screen_str(char *str, t_env *env);
 
 /*
-** Parsing scene
+** Parsing Scene
 */
-void				ft_sceneparse(int fd, t_env *env);
+void				scene_parse(int fd, t_env *env);
+char				*ft_strcsub(char const *s, char sc, char ec);
 
-/* 
-** Creating objs
-*/
-void				ft_add_cam(char *ln, t_env *env);
-void				ft_add_sphere(char *ln, t_env *env);
-void				ft_add_light(char *ln, t_env *env);
-void				ft_add_plane(char *ln, t_env *env);
-void				ft_add_cone(char *ln, t_env *env);
-void				ft_add_cylinder(char *ln, t_env *env);
 #endif

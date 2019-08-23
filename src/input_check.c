@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 19:20:55 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/21 15:54:11 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/21 21:01:41 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,5 @@ void	set_startup(int ac, char **av, t_env *env)
 	ft_win_error_check(ac, env);
 	if (fd <= 0)
 		ft_say("No Valid Scene file entered!", 1, env);
-	ft_sceneparse(fd, env);
+	scene_parse(fd, env);
 }
