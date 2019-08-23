@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:51:21 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/19 12:51:46 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/22 19:30:21 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,9 @@ typedef struct		s_env
 	int				win_y;
 	t_img			img;
 	int				say;
+	int				scene_lines;
+	char			**data;
+	t_list			*objects;
 }					t_env;
 
 /*
@@ -110,4 +113,9 @@ void				load_scene(int fd, t_env *env);
 void				ft_win_error_check(int ac, t_env *env);
 void				ft_flag_check(char **av, t_env *env, int i);
 void				parse_screen_str(char *str, t_env *env);
+/*
+** Parsing Scene
+*/
+void				scene_parse(int fd, t_env *env);
+char				*ft_strcsub(char const *s, char sc, char ec);
 #endif
