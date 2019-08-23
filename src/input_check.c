@@ -63,7 +63,6 @@ void	ft_win_error_check(int ac, t_env *env)
 	}
 }
 
-
 void	set_startup(int ac, char **av, t_env *env)
 {
 	int fd;

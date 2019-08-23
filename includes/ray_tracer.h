@@ -31,7 +31,9 @@
 # define WIN_X_MAX 1980
 # define WIN_Y_MAX 1080
 # define WIN_NAME "Ray Tracer v1"
-
+# define EROR 1
+# define STAT 0
+# define DONE 2
 typedef struct timeval	t_timeval;
 /*
 ** Key DEFINES
@@ -109,13 +111,15 @@ void				ft_say(char *str, int bexit, t_env *env);
 ** Parsing args
 */
 void				set_startup(int ac, char **av, t_env *env);
-void				load_scene(int fd, t_env *env);
+int					load_scene(int fd, t_env *env);
 void				ft_win_error_check(int ac, t_env *env);
 void				ft_flag_check(char **av, t_env *env, int i);
 void				parse_screen_str(char *str, t_env *env);
+
 /*
 ** Parsing Scene
 */
 void				scene_parse(int fd, t_env *env);
 char				*ft_strcsub(char const *s, char sc, char ec);
+
 #endif
