@@ -2,19 +2,38 @@ Scene {
 #a comment is defined by a hashtag on first char 
 # <-- like so.
 #a item ex CAM || SPHERE || PLANE || LIGHT is defined by its name
+LIGHT
+	STREN[0.4]
+	POINT[0.1, 0.3, 1.0]
+LIGHT
+	STREN[0.4]
+	POINT[0.1, 0.3, 1.0]
 CAM
-	POS[-0.345,10,0]
-	DIR[0,90,0]	
-LIGHT
-	POINT[0,0,0]
-	STREN[0.45]
-LIGHT
-	AMBIENT[0.5, 0.65, 0.55]
-	STREN[0.1]
+	POS[0, 0, 0]
+	DIR[0, 0 ,0]	
 SPHERE
-	Ahh some crappy stuff
-#the scene will regard any junk as junk and just not use it. ex
-#0x100\04x00 ==  useless
-#the scene must end with a closing bracket
-#still developing the interpreter .. but it'll be sooo cool if it works!
+	POS[0, 10, -10]
+	RADIUS[3.0]
+	COLOR[10, 0, 255]
+SPHERE
+	POS[0, -10, -10]
+	RADIUS[3.0]
+	COLOR[255, 255, 0]
+SPHERE
+	POS[10, 0, -10]
+	RADIUS[3.0]
+	COLOR[55, 0, 255]
+SPHERE
+	POS[40, 0, -10]
+	RADIUS[3.0]
+	COLOR[255, 120, 255]
+PLANE
+	DIST[0, 1, 0]
+	NORMAL[100, 100, 100]
+	COLOR[127, 255, 127]
+CONE
+	POINT[0, 0, -10]
+	ANGLE[30]
+	DIR[0, 1, 0]
+	COLOR[0, 255, 0]
 }

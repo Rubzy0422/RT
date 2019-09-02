@@ -6,7 +6,7 @@
 /*   By: rcoetzer <rcoetzer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 19:20:55 by rcoetzer          #+#    #+#             */
-/*   Updated: 2019/08/21 21:01:41 by rcoetzer         ###   ########.fr       */
+/*   Updated: 2019/08/27 19:16:48 by rcoetzer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_win_error_check(int ac, t_env *env)
 	}
 }
 
-void	set_startup(int ac, char **av, t_env *env)
+void	set_openfd(int ac, char **av, t_env *env)
 {
 	int fd;
 	int i;

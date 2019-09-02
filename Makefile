@@ -1,20 +1,28 @@
 NAME = RT
 CC = gcc
-SRC =	hooks.c\
+SRC =	cam.c\
+		checks.c\
+		ft_strcsub.c\
+		hooks.c\
 		img.c\
-		main.c\
-		save_img.c\
-		log.c\
 		input_check.c\
+		light.c\
+		log.c\
+		main.c\
+		plane.c\
+		cone.c\
+		cylinder.c\
+		rgb_to_hex.c\
+		save_img.c\
 		scene_parse.c\
-		ft_strcsub.c
+		sphere.c\
+		vec_funcs.c
 
 INC =	-I ./includes \
 		-I ./libft/includes \
-		-I ./libvec/includes \
 		-I ./minilibx
 
-LIBS = libft/libft.a libvec/libvec.a
+LIBS = libft/libft.a
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
@@ -33,7 +41,7 @@ OBJS		=	$(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
 all: directory $(NAME)
 
-$(NAME): libft.a libvec.a libmlx.a $(OBJ_DIR) $(OBJS)
+$(NAME): libft.a libmlx.a $(OBJ_DIR) $(OBJS)
 	@$(CC) $(OBJS) -o $(NAME) $(FLAGS) $(LIBS) $(MLX_FLAGS)
 	@printf "\e[33m[COMPILED] \e[32m%41s\e[39m\n" "$(NAME)"
 
@@ -54,15 +62,11 @@ clean:
 fclean: clean
 	@rm -rf $(NAME)
 	@make -C libft fclean
-	@make -C libvec fclean
 
 re: fclean all
 
 libft.a: libft
 	@make -C libft
-
-libvec.a: libvec
-	@make -C libvec
 
 libmlx.a: minilibx
 	make -C minilibx
@@ -72,11 +76,7 @@ minilibx:
 libft:
 	@git clone https://github.com/rubzy0422/libft.git
 
-libvec:
-	@git clone https://github.com/rubzy0422/libvec.git
-
 destroy: fclean
-	rm -rf libvec
 	rm -rf libft
 	rm -rf *.bmp
 	rm -rf minilibx
